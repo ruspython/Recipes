@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Hey, man{% endblock %}
+{% block content %}
+{% endblock %}
+{% block login %}
+    <article>
+    <form action="/auth/login/" method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        {% if login_error %}
+        <label class="error">{{ login_error }}</label>
+        {% endif %}
+        <input type="submit" value="Enter">
+        <div><h4><a href="/auth/register/">Register</a></h4></div>
+    </form>
+    </article>
+{% endblock %}

@@ -1,0 +1,386 @@
+
+html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    background-color: #eee;
+    font-family: Verdana, sans-serif;
+    color: #444;
+    font-size: 1em;
+    line-height: 140%;
+}
+
+#main {
+    padding-bottom: 100px;
+    zoom: 1;
+}
+
+#main > *, footer > * {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+#container {
+    height: auto;
+    min-height: 100%;
+    max-width: 1500px;
+    margin: auto;
+    height: 100%;
+    box-shadow: 0 0 150px #ccc;
+}
+
+a {
+    color: #048280;
+}
+
+h2 {
+    display: block;
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+
+header {
+    background-color: #444;
+    padding-top: 5px;
+    padding-bottom: 65px;
+    padding-left: 20px;
+    border-bottom: 2px solid #eee;
+    position: relative;
+    border-radius: 7px;
+}
+
+header h2 a {
+    font-family: Verdana, sans-serif;
+    color: white;
+    float: left;
+    margin: 0;
+    padding-top: 10px;
+    font-size: 35px;
+    text-decoration: none;
+}
+
+header h2 a span {
+    color: greenyellow;
+    opacity: 0.8;
+    transition: all 0.2s ease-in-out;
+}
+
+header h2 a span:hover {
+    opacity: 1;
+}
+
+header nav {
+    position: absolute;
+    right: 50px;
+    padding-top: 18px;
+    clear: both;
+    font-size: 14px;
+}
+
+header nav li {
+    margin-right: 10px;
+    display: inline;
+
+}
+
+header nav li a {
+    color: white;
+}
+
+header nav li span {
+    margin-left: 10px;
+    color: #bada55;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+section.blog {
+    margin: 10px;
+}
+
+section.blog h1 {
+    font-weight: normal;
+    font-size: 1em;
+    color: #666;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.posts {
+    width: 60%;
+    float: left;
+    margin: 0 20%;
+    padding-right: 0;
+}
+
+div.posts article, #disqus_thread {
+    margin-bottom: 40px;
+    padding: 10px 30px 20px;
+    box-shadow: 0 2px 4px #ccc;
+    border: none;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+div.posts article h1 a {
+    font-weight: normal;
+    line-height: 140%;
+    text-decoration: none;
+}
+
+div.posts article div.content {
+    font-size: 14px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+div.posts .info {
+    margin: 0px 0 30px 0;
+    font-size: 0.9em;
+    background-color: #F6F7ED;
+    border-radius: 3px;
+
+}
+
+div.posts .info h1 {
+    margin-left: 10px;
+    display: inline;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+}
+
+div.posts .info h1 a:hover {
+    text-decoration: underline;
+    opacity: 0.6;
+
+}
+
+.author {
+    font-style: italic;
+    text-align: left;
+    display: inline;
+    float: right;
+    color: darkred;
+    margin: 4px 30px 0 0;
+
+}
+
+.timestamp {
+    font-style: italic;
+    text-align: right;
+    float: right;
+    display: inline;
+    color: brown;
+    margin: 4px 10px 0 0;
+}
+
+article, aside, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+:-webkit-any(article,aside,nav,section) h1 {
+    font-size: 1.5em;
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+
+}
+
+.tags ul{
+    /*border: 1px solid green;*/
+
+}
+.tags li {
+    display: inline;
+    list-style-type: none;
+    padding: 5px;
+    margin: 10px 10px 10px 0;
+    border-radius: 5px;
+    background-color: #048280;
+    opacity: 0.7;
+}
+.tags li:hover {
+    opacity: 1;
+}
+.tags a {
+    text-decoration: none;
+    color: white;
+}
+/*Media block*/
+
+@media screen and (min-width: 768px) {
+    .posts {
+        width: 60%;
+        float: left;
+        margin: 10px 20%;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .posts {
+        width: 90%;
+        float: left;
+        margin: 10px 5%;
+        padding-right: 0;
+    }
+}
+
+/* Addrecipe forms */
+
+input, textarea, select {
+    padding: 0;
+    margin-bottom: 20px;
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;
+    width: 100%;
+    display: block;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    background: #FFFFFF;
+}
+
+textarea {
+    display: block;
+    width: 100%;
+    height: 400px;
+    line-height: 150%;
+}
+
+input[type="password"], input[type="text"] {
+    display: block;
+    width: 100%;
+    line-height: 27px;
+    height: 27px;
+    border: 1px solid #d9d9d9;
+
+}
+
+input:hover, textarea:hover,
+input:focus, textarea:focus {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+select {
+    width: 15%;
+}
+
+.helptext {
+    display: none;
+}
+form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #999;
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+.errorlist {
+    color: red;
+}
+
+input[type="submit"] {
+    display: block;
+    padding: 9px 15px;
+    width: 100px;
+    background: #999;
+    border: 0;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+/*Selection block*/
+
+::-moz-selection {
+    /* Code for Firefox */
+    background: #bada55;
+}
+
+::selection {
+    background: #bada55;
+}
+
+/* Scroller */
+
+#scroller {
+    /* border: 3px solid blue; */
+    position: fixed;
+    right: 70px;
+    bottom: 50px;
+    color: white;
+    font-size: 40px;
+    padding: 7px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(68, 68, 68, 0.5);
+    width: 150px;
+    height: 60px;
+}
+#pager {
+    display: block;
+    position: relative;
+    background: black;
+    color: white;
+    font-size: 40px;
+    padding: 20px;
+    background-color: #444444;
+    opacity: 0.3;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(68,68,68,0.5);
+
+}
+#triangle-up{
+    position: relative;
+    display: none;
+    background-color: #aaa;
+    background-image: url("/static/img/tr.png");
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+    border: 1px solid green;
+    left: 60px;
+    top: 15px;
+}
+
+

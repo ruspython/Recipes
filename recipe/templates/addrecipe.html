@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Add a recipe{% endblock %}
+{% block content %}
+    <article>
+        <form action="/recipe/add/" method="post" class="recipe-form">{% csrf_token %}
+            {{ form.as_p }}
+{#            <p>#}
+{#                <label for="id_title">Заголовок:</label>#}
+{#                <input id="id_title" maxlength="200" name="title" type="text"/>#}
+{#            </p>#}
+{##}
+{#            <p>#}
+{#                <label for="id_text">Текст:</label>#}
+{#                <textarea cols="40" id="id_text" name="text" rows="10"></textarea>#}
+{#            </p>#}
+            <input type="submit" value="Post">
+        </form>
+    </article>
+{% endblock %}
