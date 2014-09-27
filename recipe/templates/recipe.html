@@ -8,8 +8,10 @@
         <div class="info">
             <h1><a href="{% url 'home_page' %}recipes/{{ recipe.id }}">{{ recipe.title }}</a></h1>
 
-            <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
-            <div class="author"><i>{{ recipe.author }}</i></div>
+            <div class="author-time">
+                <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
+                <div class="author"><i>{{ recipe.author }}</i></div>
+            </div>
         </div>
         <div class="content">
             {{ recipe.text|delete_cuts:"<cut>"|linebreaks|safe }}

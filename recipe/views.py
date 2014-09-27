@@ -18,7 +18,6 @@ def home(request):
         args['username'] = auth.get_user(request).username
     args['recipes'] = Recipe.objects.all()
     args['username'] = auth.get_user(request).username
-    #random_recipe = get_random_recipe(args[])
     return render_to_response('home.html', args)
 
 
@@ -30,7 +29,6 @@ def recipe(request, recipe_id):
         recipe = Recipe.objects.get(id=recipe_id)
         args['recipe'] = recipe
         args['tags'] = recipe.tags.all()
-        print(args['tags'])
     except ObjectDoesNotExist as e:
         raise Http404
 

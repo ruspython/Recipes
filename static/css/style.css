@@ -179,6 +179,7 @@ div.posts .info {
     font-size: 0.9em;
     background-color: #F6F7ED;
     border-radius: 3px;
+    /*border: 1px solid green;*/
 
 }
 
@@ -193,6 +194,13 @@ div.posts .info h1 a:hover {
     text-decoration: underline;
     opacity: 0.6;
 
+}
+
+div.posts .info .author-time {
+    display: block;
+    margin-left: 20px;
+    /*border: 1px solid dodgerblue;*/
+    float: right;
 }
 
 .author {
