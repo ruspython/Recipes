@@ -14,8 +14,7 @@
             </div>
         </div>
         <div class="content">
-            {{ recipe.text|delete_cuts:"<cut>"|linebreaks|safe }}
-
+                {{ recipe.get_content|safe|delete_cuts|safe}}
         </div>
 
         <div class="tags">

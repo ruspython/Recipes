@@ -1,5 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.utils.safestring import mark_safe
+import markdown
+
+from recipe.util import urlize
 
 
 class Tag(models.Model):
@@ -16,5 +19,15 @@ class Recipe(models.Model):
     text = models.TextField(verbose_name='Текст', null=False)
     tags = models.ManyToManyField(Tag, null=False, help_text='')
 
+    class Meta:
+        ordering = ['-timestamp',]
+
     def __str__(self):
         return self.title
+
+    def get_content(self):
+        content = mark_safe(urlize(markdown.markdown(self.text, safe_mode='escape')))
+        content = content.replace('&lt;pre&gt;', '<pre>').replace(
+            '&lt;code&gt;', '<code>').replace(
+            '&lt;/code&gt;', '</code>').replace('&lt;/pre&gt;', '</pre>')
+        return content

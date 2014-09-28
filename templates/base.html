@@ -9,7 +9,7 @@
 
     <script src="http://yandex.st/highlightjs/8.2/highlight.min.js"></script>
     <script src="{% static 'js/scripts.js' %}"></script>
-{#    <script src="{% static 'js/jquery.js' %}"></script>#}
+    {#    <script src="{% static 'js/jquery.js' %}"></script>#}
     <script>hljs.initHighlightingOnLoad();</script>
 
     <title>{% block title %}Базовая страница{% endblock %}</title>
@@ -22,6 +22,9 @@
     <div class="posts">
         {% block content %}{% endblock %}
         {% block login %}{% endblock %}
+        <div id="scroller">
+            <div id="pager">0%</div>
+        </div>
     </div>
 </div>
 

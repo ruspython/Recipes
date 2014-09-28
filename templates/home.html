@@ -11,12 +11,8 @@
                 <div class="author"><i>{{ recipe.author }}</i></div>
             </div>
             <div class="content">
-                {{ recipe.text|split:"<cut>"|linebreaks }}
+                {{ recipe.get_content|safe|split|safe }}
             </div>
         </article>
     {% endfor %}
-    <div id="scroller">
-        <div id="pager">0%</div>
-
-    </div>
 {% endblock %}
