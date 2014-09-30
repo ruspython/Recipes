@@ -253,25 +253,6 @@ article, aside, footer, header, hgroup, main, nav, section {
     text-decoration: none;
     color: white;
 }
-/*Media block*/
-
-@media screen and (min-width: 768px) {
-    .posts {
-        width: 60%;
-        float: left;
-        margin: 10px 20%;
-        padding-right: 0;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .posts {
-        width: 90%;
-        float: left;
-        margin: 10px 5%;
-        padding-right: 0;
-    }
-}
 
 /* Addrecipe forms */
 
@@ -391,4 +372,53 @@ input[type="submit"] {
     top: 15px;
 }
 
+/* Paginator */
 
+.paginator{
+    display: block;
+}
+.paginator ul {
+    list-style: none;
+    font-size: 2em;
+}
+.paginator ul li {
+    display: inline;
+}
+
+.paginator a {
+    text-decoration: none;
+    padding: 3px;
+}
+.current-page-item a {
+    background-color: #048280;
+    color: white;
+}
+
+/* Edit sprite */
+#edit-sprite {
+    float: right;
+    width: 24px;
+    height: 24px;
+}
+
+/* Auth forms */
+.auth {
+    width: 40%;
+    margin: 5% 30% 0 30%;
+    padding: 10px 30px 20px;
+    box-shadow: 0 2px 4px #ccc;
+    background-color: white;
+    border-radius: 5px;
+}
+.auth h2 {
+    display: block;
+    margin-bottom: 10px;
+    color: #777;
+    font-weight: bold;
+
+}
+.auth hr{
+    border-top: #eee;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

@@ -11,6 +11,9 @@ window.onload = function () {
         var height = document.documentElement.clientHeight;
         var percent = Math.round((scrollTop) / (document.body.scrollHeight - height) * 100);
 
+        if (isNaN(percent)){
+            percent = 0;
+        }
         if (percent < 0) {
             percent = 0;
         } else if (percent > 100) {
@@ -25,15 +28,5 @@ window.onload = function () {
                 window.scrollTo(0, sc);
             }
         }
-        /* scroller.onmouseover = function () {
-            pager.style.display = 'none';
-            scrollButton.style.display = 'block';
-            scroller.style.backgroundColor = '#ccc'
-        }
-        scroller.onmouseout =  function () {
-            pager.style.display = '';
-            scrollButton.style.display = 'none';
-        }
-        */
     };
 }

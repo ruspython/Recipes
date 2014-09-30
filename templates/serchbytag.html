@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load recipe_extras %}
+
 {% block title %}{{ tag_name }}{% endblock %}
 {% block content %}
     {% for recipe in recipes %}
@@ -9,7 +11,7 @@
                 <div class="author"><i>{{ recipe.author }}</i></div>
             </div>
             <div class="content">
-                {{ recipe.text }}
+                {{ recipe.get_content|safe|split|safe }}
             </div>
         </article>
     {% endfor %}

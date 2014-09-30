@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.utils.timezone import now
+from django.core.paginator import Paginator
 
 from recipe.models import Recipe
 from recipe.forms import RecipeForm
@@ -15,12 +16,25 @@ def get_random_recipe(recipes):
     return recipes[randint(0, len(recipes) - 1)]
 
 
-def home(request):
+def home(request, page_number=1):
     args = {}
+    recipes = Recipe.objects.all()
+    cur_page = Paginator(recipes, 7)
     if auth.get_user(request).is_authenticated():
         args['username'] = auth.get_user(request).username
-    args['recipes'] = Recipe.objects.all()
+    args['recipes'] = cur_page.page(page_number)
     args['username'] = auth.get_user(request).username
+    return render_to_response('home.html', args)
+
+
+def searchbytag(request, tag_name, page_number=1):
+    args = {}
+    recipes = [recipe for recipe in Recipe.objects.all() for tag in recipe.tags.all() if tag_name in tag.name]
+    cur_page = Paginator(recipes, 7)
+    args['recipes'] = cur_page.page(page_number)
+    if auth.get_user(request).is_authenticated():
+        args['username'] = auth.get_user(request).username
+    args['tag_name'] = tag_name
     return render_to_response('home.html', args)
 
 
@@ -54,16 +68,6 @@ def addrecipe(request):
     else:
         return redirect('/auth/login/')
     return render_to_response('addrecipe.html', args, context_instance=RequestContext(request))
-
-
-def searchbytag(request, tag_name):
-    args = {}
-    recipes = [recipe for recipe in Recipe.objects.all() for tag in recipe.tags.all() if tag_name in tag.name]
-    args['recipes'] = recipes
-    if auth.get_user(request).is_authenticated():
-        args['username'] = auth.get_user(request).username
-    args['tag_name'] = tag_name
-    return render_to_response('serchbytag.html', args)
 
 
 @login_required

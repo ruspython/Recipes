@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% load recipe_extras %}
 
 {% block title %}{{ recipe.title }}{% endblock %}
@@ -11,6 +12,11 @@
             <div class="author-time">
                 <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
                 <div class="author"><i>{{ recipe.author }}</i></div>
+            </div>
+            <div id="edit-sprite">
+                <a href="/recipes/editrecipe/{{ recipe.id }}/">
+                    <img src="{% static 'img/edit.png' %}"/>
+                </a>
             </div>
         </div>
         <div class="content">
