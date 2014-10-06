@@ -41,9 +41,9 @@ def searchbytag(request, tag_name, page_number=1):
 def recipe(request, recipe_id):
     user = auth.get_user(request)
     args = {}
+    username = ''
     if auth.get_user(request).is_authenticated():
         args['username'] = username = auth.get_user(request).username
-    args['username'] = 'kakashka neopoznanaya'
     try:
         recipe = Recipe.objects.get(id=recipe_id)
         if user.is_superuser or recipe.author == username:
