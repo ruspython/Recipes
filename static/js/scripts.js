@@ -11,7 +11,7 @@ window.onload = function () {
         var height = document.documentElement.clientHeight;
         var percent = Math.round((scrollTop) / (document.body.scrollHeight - height) * 100);
 
-        if (isNaN(percent)){
+        if (isNaN(percent)) {
             percent = 0;
         }
         if (percent < 0) {
@@ -29,4 +29,42 @@ window.onload = function () {
             }
         }
     };
+    inputElements = document.querySelectorAll('input, textarea');
+    submitBtn = document.querySelector('input[type="submit"]');
+    inputFunc = function(){
+        if (this.value.length > 0){
+            this.style.borderColor = '';
+        }
+    }
+    for (i = 0; i < inputElements.length; i++) {
+        inputElements[i].oninput = inputFunc;
+    }
+    submitBtn.onmouseover = function () {
+        for (i = 0; i < inputElements.length; i++) {
+            elem = inputElements[i];
+            if (elem.value == ''){
+                elem.style.borderColor = 'red';
+            }
+        }
+    }
 }
+var xmlhttp;
+function loadXMLDoc() {
+    if (window.XMLHttpRequest)
+    {
+        xmlhttp = new XMLHttpRequest();
+    } else{
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function(){
+        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+            document.getElementById('ajaxer').innerHTML = xmlhttp.responseText;
+        }
+    }
+    xmlhttp.open("GET", "/getdate", true);
+        xmlhttp.send()
+
+}
+var timer = setInterval(function() {
+  loadXMLDoc();
+}, 2000);

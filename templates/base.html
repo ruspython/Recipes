@@ -10,7 +10,10 @@
     <script src="{% static 'js/highlight.min.js' %}"></script>
     <script src="{% static 'js/scripts.js' %}"></script>
     {#    <script src="{% static 'js/jquery.js' %}"></script>#}
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.tabReplace = '    ';
+        hljs.initHighlightingOnLoad();
+    </script>
 
     <title>{% block title %}Базовая страница{% endblock %}</title>
 </head>
@@ -18,7 +21,9 @@
 
 <div id="container">
     {% include 'header.html' %}
-    <section class="content blog">Гениальные решения сложных проблем</section>
+    <section class="content blog" id="ajaxer">Гениальные решения сложных проблем</section>
+    <button id="ajaxClicker" type="button" onclick="clearInterval(timer)">Clyak</button>
+
     <div class="posts">
         {% block content %}{% endblock %}
         {% block login %}{% endblock %}

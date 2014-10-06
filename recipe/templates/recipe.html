@@ -13,11 +13,13 @@
                 <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
                 <div class="author"><i>{{ recipe.author }}</i></div>
             </div>
+            {% if not wrong_author %}
             <div id="edit-sprite">
                 <a href="/recipes/editrecipe/{{ recipe.id }}/">
                     <img src="{% static 'img/edit.png' %}"/>
                 </a>
             </div>
+            {% endif %}
         </div>
         <div class="content">
                 {{ recipe.get_content|safe|delete_cuts|safe}}
