@@ -37,9 +37,14 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipe.templatetags.recipe_extras',
+
     'recipe',
     'loginsys',
+    'django.contrib.sites',
+    'django.contrib.flatpages',
 )
+
+SITE_ID = 1
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',

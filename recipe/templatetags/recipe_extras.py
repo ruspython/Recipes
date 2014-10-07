@@ -1,5 +1,8 @@
 from django import template
 from django.template.defaultfilters import stringfilter
+#from django.utils.encoding import force_unicode
+from django.utils.safestring import mark_safe
+import markdown
 import re
 
 register = template.Library()
@@ -30,3 +33,12 @@ def allow_code(value):
 @register.filter()
 def nothing(value):
     return value.replace('[cut]', '')
+
+@register.filter(is_safe=True)
+@stringfilter
+def custom_markdown(value):
+    extensions = ["nl2br", ]
+    return mark_safe(markdown.markdown(value,
+                                       extensions,
+                                       safe_mode=True,
+                                       enable_attributes=False))

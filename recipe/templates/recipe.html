@@ -7,7 +7,8 @@
 {% block content %}
     <article>
         <div class="info">
-            <h1><a href="{% url 'home_page' %}recipes/{{ recipe.id }}">{{ recipe.title }}</a></h1>
+{#            <h1><a href="{% url 'home_page' %}recipes/{{ recipe.id }}">{{ recipe.title }}</a></h1>#}
+            <h1><a href="{{ recipe.get_absolute_url }}">{{ recipe.title }}</a></h1>
 
             <div class="author-time">
                 <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
@@ -28,7 +29,7 @@
         <div class="tags">
             <ul>
                 {% for tag in tags %}
-                    <li><a href="/recipes/searchbytag/{{ tag }}">{{ tag }}</a></li>
+                    <li><a href="{{ tag.get_absolute_url }}">{{ tag }}</a></li>
                 {% endfor %}
             </ul>
         </div>

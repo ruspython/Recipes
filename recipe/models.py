@@ -12,6 +12,10 @@ class Tag(models.Model):
     def __str__(self):
         return str(self.name)
 
+    def get_absolute_url(self):
+        return '/recipes/searchbytag/%s/' % self.name
+
+
 
 class Recipe(models.Model):
     author = models.CharField(max_length=50, null=False)
@@ -22,6 +26,9 @@ class Recipe(models.Model):
 
     class Meta:
         ordering = ['-timestamp',]
+
+    def get_absolute_url(self):
+        return '/recipes/%s'%self.id
 
     def __str__(self):
         return self.title
