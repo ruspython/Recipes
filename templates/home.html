@@ -9,7 +9,7 @@
 {#                <h1><a href="{% url 'home_page' %}recipes/{{ recipe.id }}">{{ recipe.title }}</a></h1>#}
                 <h1><a href="{{ recipe.get_absolute_url }}">{{ recipe.title }}</a></h1>
                 <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
-                <div class="author"><i>{{ recipe.author }}</i></div>
+                <div class="author"><i>{{ recipe.author.username }}</i></div>
             </div>
             <div class="content">
                 {{ recipe.get_content|safe|split|safe }}

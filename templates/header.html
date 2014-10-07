@@ -4,12 +4,12 @@
 
             <nav>
                 <ul id="main-menu" class="menu">
-                    {% if username %}
+                    {% if user %}
                         <li class="item"><a href="/recipe/add">Добавить рецепт</a></li>
                     {% endif %}
 
-                    {% if username %}
-                        <li class="item"><a href="/auth/logout/">Выйти</a><span>{{ username }}</span></li>
+                    {% if user %}
+                        <li class="item"><a href="/auth/logout/">Выйти</a><span>{{ user.username }}</span></li>
                     {% else %}
                         <li class="item"><a href="/auth/login/">Войти</a></li>
                     {% endif %}

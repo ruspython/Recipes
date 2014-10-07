@@ -1,5 +1,6 @@
 from django.db import models
 from django import forms
+from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 import markdown
 
@@ -16,13 +17,14 @@ class Tag(models.Model):
         return '/recipes/searchbytag/%s/' % self.name
 
 
-
 class Recipe(models.Model):
-    author = models.CharField(max_length=50, null=False)
+    #author = models.CharField(max_length=50, null=False)
+    author = models.ForeignKey(User, null=False)
     title = models.CharField(max_length=200, verbose_name='Заголовок', null=False)
     timestamp = models.DateTimeField(auto_now=True)
     text = models.TextField(verbose_name='Текст', null=False)
     tags = models.ManyToManyField(Tag, null=False, help_text='')
+
 
     class Meta:
         ordering = ['-timestamp',]
