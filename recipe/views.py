@@ -11,6 +11,7 @@ from recipe.models import Recipe, Tag
 from recipe.forms import RecipeForm
 from random import randint
 import datetime
+from django.contrib.syndication.views import Feed
 
 
 def get_random_recipe(recipes):
@@ -110,3 +111,17 @@ def getdate(request):
     tags = Tag.objects.all()
     random_tag = tags[randint(0, len(tags)-1)]
     return render_to_response("date.html", {'getdate': datetime.datetime.now(), 'random_tag': random_tag.name});
+
+class RecipeFeed(Feed):
+    title = 'RSS feed - recipes'
+    link = '/feeds/recipes/'
+    description = 'RSS feed recipes'
+
+    def items(self):
+        return Recipe.objects.order_by('-timestamp')
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.text

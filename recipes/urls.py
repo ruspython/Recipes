@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-
+from recipe.views import RecipeFeed
 urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     url(r'^page/(\d+)', 'recipe.views.home'),
     url(r'^getdate', 'recipe.views.getdate'),
     url(r'^$', 'recipe.views.home', name='home_page'),
+    url(r'^feeds/posts/$', RecipeFeed()),
 
     # Flat pages
     url(r'', include('django.contrib.flatpages.urls')),

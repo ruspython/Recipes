@@ -37,11 +37,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'recipe.templatetags.recipe_extras',
-
     'recipe',
     'loginsys',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'django.contrib.syndication',
 )
 
 SITE_ID = 1
