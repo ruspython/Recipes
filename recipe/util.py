@@ -7,7 +7,7 @@ class ExcludeTagsHTMLParser(HTMLParser):
         Class for html parsing with excluding specified tags.
         """
 
-        def __init__(self, func, tags=('a', 'code',)):
+        def __init__(self, func, tags=('a', 'code', 'pre',)):
             HTMLParser.__init__(self)
             self.func = func
             self.is_ignored = False

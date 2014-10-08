@@ -2,7 +2,7 @@ from django import template
 from django.template.defaultfilters import stringfilter
 #from django.utils.encoding import force_unicode
 from django.utils.safestring import mark_safe
-import markdown
+import markdown2
 import re
 
 register = template.Library()
@@ -37,8 +37,5 @@ def nothing(value):
 @register.filter(is_safe=True)
 @stringfilter
 def custom_markdown(value):
-    extensions = ["nl2br", ]
-    return mark_safe(markdown.markdown(value,
-                                       extensions,
-                                       safe_mode=True,
-                                       enable_attributes=False))
+    extras = ["fenced-code-blocks"]
+    return mark_safe(markdown2.markdown(value, extras = extras))

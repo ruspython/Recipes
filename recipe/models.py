@@ -37,7 +37,8 @@ class Recipe(models.Model):
 
     def get_content(self):
         content = mark_safe(urlize(markdown.markdown(self.text, safe_mode='escape')))
-        content = content.replace('&lt;pre&gt;', '<pre>').replace(
-            '&lt;code&gt;', '<code>').replace(
-            '&lt;/code&gt;', '</code>').replace('&lt;/pre&gt;', '</pre>')
+        #print(markdown.markdown(self.text, safe_mode='escape'))
+        # content = content.replace('&lt;pre&gt;', '<pre>').replace(
+        #     '&lt;code&gt;', '<code>').replace(
+        #     '&lt;/code&gt;', '</code>').replace('&lt;/pre&gt;', '</pre>')
         return content

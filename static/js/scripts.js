@@ -48,23 +48,23 @@ window.onload = function () {
         }
     }
 }
-var xmlhttp;
-function loadXMLDoc() {
-    if (window.XMLHttpRequest)
-    {
-        xmlhttp = new XMLHttpRequest();
-    } else{
-        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange = function(){
-        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-            document.getElementById('ajaxer').innerHTML = xmlhttp.responseText;
-        }
-    }
-    xmlhttp.open("GET", "/getdate", true);
-        xmlhttp.send()
-
-}
-var timer = setInterval(function() {
-  loadXMLDoc();
-}, 2000);
+//var xmlhttp;
+//function loadXMLDoc() {
+//    if (window.XMLHttpRequest)
+//    {
+//        xmlhttp = new XMLHttpRequest();
+//    } else{
+//        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+//    }
+//    xmlhttp.onreadystatechange = function(){
+//        if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+//            document.getElementById('ajaxer').innerHTML = xmlhttp.responseText;
+//        }
+//    }
+//    xmlhttp.open("GET", "/getdate", true);
+//        xmlhttp.send()
+//
+//}
+//var timer = setInterval(function() {
+//  loadXMLDoc();
+//}, 2000);
