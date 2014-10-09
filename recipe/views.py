@@ -5,7 +5,8 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.core.context_processors import csrf
 from django.utils.timezone import now
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage
+from django.db.models import Q
 
 from recipe.models import Recipe, Tag
 from recipe.forms import RecipeForm
@@ -31,7 +32,7 @@ def home(request, page_number=1):
 
 def searchbytag(request, tag_name, page_number=1):
     args = {}
-    recipes = [recipe for recipe in Recipe.objects.all() for tag in recipe.tags.all() if tag_name in tag.name]
+    recipes = [recipe for recipe in Recipe.objects.all() for tag in recipe.tags.all() if tag_name == tag.name]
     cur_page = Paginator(recipes, 7)
     args['recipes'] = cur_page.page(page_number)
     if auth.get_user(request).is_authenticated():
@@ -125,3 +126,26 @@ class RecipeFeed(Feed):
 
     def item_description(self, item):
         return item.text
+
+
+def search(request):
+    args = {}
+    args['user'] = auth.get_user(request)
+    query = request.GET.get('q', '')
+    page = request.GET.get('page', 1)
+
+    if query:
+        results = Recipe.objects.filter(Q(title__icontains=query) | Q(text__icontains=query))
+    else:
+        results = None
+
+    pages = Paginator(results, 5)
+    try:
+        returned_page = pages.page(page)
+    except EmptyPage:
+        returned_page = pages.page(pages.num_pages)
+    args['page_obj'] = returned_page
+    args['object_list'] = returned_page.object_list
+    args['search'] = query
+
+    return render_to_response('search.html', args)

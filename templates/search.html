@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load recipe_extras %}
+{% block title %}{% endblock %}
+{% block content %}
+{% for recipe in object_list %}
+        <article>
+            <div class="info">
+                <h1><a href="{% url 'home_page' %}recipes/{{ recipe.id }}">{{ recipe.title }}</a></h1>
+                <div class="timestamp"><i>{{ recipe.timestamp }}</i></div>
+                <div class="author"><i>{{ recipe.author }}</i></div>
+            </div>
+            <div class="content">
+                {{ recipe.get_content|safe|split|safe }}
+            </div>
+        </article>
+{% endfor %}
+{% endblock %}
