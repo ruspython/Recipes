@@ -22,6 +22,13 @@ SECRET_KEY = '*$_zrhjzg(#c8(11_192@@8d$1w=t8262du$o86_0w*-9rd@qn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = 'vladdpav@gmail.com'
+    EMAIL_HOST_PASSWORD = ''
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*',]
@@ -98,3 +105,5 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+LOGIN_URL = '/auth/login/'

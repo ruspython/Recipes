@@ -3,6 +3,8 @@ from django.contrib import auth
 from django.contrib.auth.forms import UserCreationForm
 from django.core.context_processors import csrf
 
+from .forms import UserCreateForm
+
 
 def login(request):
     args = {}
@@ -29,9 +31,9 @@ def logout(request):
 def register(request):
     args = {}
     args.update(csrf(request))
-    args['form'] = UserCreationForm()
+    args['form'] = UserCreateForm()
     if request.POST:
-        newuser_form = UserCreationForm(request.POST)
+        newuser_form = UserCreateForm(request.POST)
         if newuser_form.is_valid():
             newuser_form.save()
             newuser = auth.authenticate(username=newuser_form.cleaned_data['username'], password=newuser_form.cleaned_data['password2'])

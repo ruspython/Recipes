@@ -278,7 +278,7 @@ textarea {
     line-height: 150%;
 }
 
-input[type="password"], input[type="text"] {
+input[type="password"], input[type="text"], input[type="email"] {
     display: block;
     width: 100%;
     line-height: 27px;
