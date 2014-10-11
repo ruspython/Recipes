@@ -24,9 +24,8 @@ DEBUG = True
 
 if DEBUG:
     EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_HOST_USER = 'vladdpav@gmail.com'
-    EMAIL_HOST_PASSWORD = ''
-
+    EMAIL_HOST_USER = 'testingerman@gmail.com'
+    EMAIL_HOST_PASSWORD = 'ajtdmwajtdmw'
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
 

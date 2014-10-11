@@ -11,7 +11,7 @@
                 <div class="author"><i>{{ recipe.author }}</i></div>
             </div>
             <div class="content">
-                {{ recipe.get_content|safe|split|safe }}
+                {{ recipe.get_content|safe|split|safe|allow_code|safe }}
             </div>
         </article>
     {% endfor %}
